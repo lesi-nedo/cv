@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 23 Oct, 2022
+% 24 Aug, 2024 -- added simpleicons to provide X-twitter icon
+
+\RequirePackage{silence}
+\RequirePackage{amssymb}
+\RequirePackage{amsmath}
+
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\RequirePackage{graphicx}
+\RequirePackage[hyphens]{url}
+\RequirePackage{babel}
+\raggedright
+
+\RequirePackage[fixed]{fontawesome5}
+\RequirePackage{simpleicons}
+
+\newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
+
+\RequirePackage[a4paper,nohead,nofoot,hmargin=1.25cm,vmargin=0.8cm]{geometry}
+\RequirePackage{relsize}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{tikz}
+
+\RequirePackage{comment}
+\definecolor{SwishLineColour}{HTML}{000000} % Black
+\definecolor{MarkerColour}{HTML}{000000}     % Black
+\definecolor{TextColor}{HTML}{2D3748}       % Dark text
+
+
+% If you're not a researcher nor an academic, you probably don't need biblatex; delete this line.
+\RequirePackage{biblatex}
+\RequirePackage{csquotes}
+
+\RequirePackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+   \node[shape=circle,text=white,fill=MarkerColour!80!black,font=\sffamily\scriptsize\bfseries,inner sep=1pt,text height=1.35ex,minimum width=1.5em,text centered] (char) {#1};}}
+   
+\newcounter{bibitem}
+\AtBeginBibliography{\setcounter{bibitem}{1}}
+\iffieldformatundef{labelnumberwidth}{%
+  % if author-year style
+  \AtEveryBibitem{\makebox[2.5em][l]{\circled{\thebibitem}\stepcounter{bibitem}}}%
+}{%
+  % if numeric style
+  \DeclareFieldFormat{labelnumberwidth}{\makebox[2.5em][l]{\circled{\thebibitem}}}%
+  \setlength{\biblabelsep}{0pt}%
+  \AtEveryBibitem{\stepcounter{bibitem}}%
+}
+\AtEveryBibitem{\iffieldundef{doi}{}{\clearfield{url}}}
+
+% \renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{1.5ex}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+\xpretofieldformat{doi}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+\xpretofieldformat{url}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+
+\headerscale{1}
+\setlength{\headerspace}{-10pt}
+\rubricfont{\Large\bfseries\sffamily}
+\setlength{\rubricspace}{1pt}
+\setlength{\rubricafterspace}{-15pt}
+\setlength{\subrubricspace}{1pt}
+\setlength{\subrubricbeforespace}{0pt}
+\def\@@rubrichead#1{%
+  \begin{tikzpicture}[baseline]
+    % Draw a straight horizontal line
+    \draw[line width=1pt, color=SwishLineColour!60!black] (0,0) -- (\@almosttextwidth,0);
+
+    % Place the text label slightly above the line
+    \node[
+      font={\@rubricfont},
+      inner sep=0pt,
+      text ragged,
+      anchor=south west,
+      text depth=0.5ex,
+      text height=0.5ex
+    ] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+% \def\@@rubrichead#1{%
+%   \makeatletter
+%   \noindent\color{SwishLineColour}\rule{\@almosttextwidth}{0.8pt}%
+%   \makeatother
+%   \vspace\rubricspace%
+% }
+
+\subrubricfont{\normalsize\bfseries\sffamily}
+\subrubricalignment{l}
+
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!85!black}#1} #2\hspace{1em}}
+
+\keyalignment{r}
+\rubricalignment{l}
+\renewcommand{\arraystretch}{1.1}
+\urlstyle{tt}
+
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{\relscale{0.9}#1}}
+\def\@prefixmarker{\relscale{-1}\faBookmark}
+
+\prefix{%
+  \hspace*{-1ex}%
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
+}
+
+
+\newcommand{\tikzbullet}{\tikz\fill[blue] (0,0) circle (2pt);}
+
+
+\newcommand{\makerubrichead}[1]{\vskip\baselineskip\@@rubrichead{#1}}
+
+\defbibheading{subbibliography}{\vskip\subrubricbeforespace{\@subrubricfont\hspace{3pt}#1}\par}
+
+\defbibfilter{booksandchapters}{%
+( type=book or type=incollection )
+}
+
+\RequirePackage{pgffor}
+\newcommand{\mynames}[1]{\def\my@namelist{#1}}
+\newtoggle{boldname}
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist {%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+      {\global\toggletrue{boldname}}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1}}{#1}%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \global\togglefalse{boldname}%
+  \foreach \my@fname / \my@gname in \my@namelist{%
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\my@fname}}
+                 and
+                 test {\ifdefstrequal{\namepartgiven}{\my@gname}}}
+      {\global\toggletrue{boldname}\breakforeach}{}%
+  }%
+  \iftoggle{boldname}{\textbf{#1}}{#1}%
+}
