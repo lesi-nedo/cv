@@ -10,11 +10,11 @@ This repository contains the LaTeX source for my personal Curriculum Vitae (CV) 
 - Bibliography (optional): `own-bib.bib`
 - Cover letter and assets: `cover_letter/`
 
-Note: build and usage instructions have been removed from this README.
 
 ## License
 
-Add a `LICENSE` file if you want to publish this repository under an explicit license.
+This repository is private and covered by a proprietary "All Rights Reserved" license.
+See `LICENSE` for full terms and contact information.
 
 ## Author
 
