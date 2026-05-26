@@ -23,7 +23,6 @@
 *.pdfsync
 
 # Build outputs (uncomment the ! to track PDFs if you prefer)
-*.pdf
 *.ps
 *.dvi
 
