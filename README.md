@@ -1,6 +1,6 @@
-# CV — LaTeX source
+# Personal CV — LaTeX source
 
-This repository contains the LaTeX source for a Curriculum Vitae and an associated cover letter template.
+This repository contains the LaTeX source for my personal Curriculum Vitae (CV) and an associated cover letter template.
 
 ## Overview
 
