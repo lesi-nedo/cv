@@ -1,0 +1,49 @@
+.vscode/
+# LaTeX project: ignore generated and intermediate files
+*.aux
+*.bbl
+*-SAVE-ERROR
+*.blg
+*.bcf
+*.run.xml
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.idx
+*.ilg
+*.ind
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+*.pdfsync
+
+# Build outputs (uncomment the ! to track PDFs if you prefer)
+*.pdf
+*.ps
+*.dvi
+
+# Editor/OS temporary files
+*~
+*.bak
+*.tmp
+*.swp
+*.swo
+.#*
+*.orig
+.DS_Store
+Thumbs.db
+
+# latexmk artifacts
+latexmk.log
+latexmk.done
+
+# common output/build directories
+_out/
+build/
+output/
+dist/
