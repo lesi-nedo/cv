@@ -1,0 +1,129 @@
+%%%%%%%%%%%%%%%
+% This CV example/template is based on my own
+% CV which I (lamely attempted) to clean up, so that
+% it's less of an eyesore and easier for others to use.
+%
+% LianTze Lim (liantze@gmail.com)
+% 23 Oct, 2022
+% 24 Aug, 2024 -- Updated X (Twitter) icon
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+
+% Uncomment to enable Chinese; needs XeLaTeX
+% \usepackage{ctex}
+
+
+% Default biblatex style used for the publication list is APA6. If you wish to use a different style or pass other options to biblatex you can change them here. 
+\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true}{biblatex}
+
+% Most commands and style definitions are in settings.sty.
+\usepackage{settings}
+
+
+
+% If you need to further customise your biblatex setup e.g. with \DeclareFieldFormat etc please add them here AFTER loading settings.sty. For example, to remove the default "[Online] Available:" prefix before URLs when using the IEEE style:
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+
+%% Only needed if you want a Publication List
+% \addbibresource{own-bib.bib}
+
+
+%% You can specify multiple names like this, especially if you have changed your name or if you need to highlight multiple authors. See items 6–9 in the example "Journal Articles" output.
+\mynames{Oleksiy\bibnamedelima Nedobiychuk}
+%% MAKE SURE THERE IS NO SPACE AFTER THE FINAL NAME IN YOUR \mynames LIST
+
+
+\usepackage[T1]{fontenc}
+\usepackage{roboto}
+\usepackage[
+  defaultfam,
+  scaled=0.9,
+  regular,
+  tabular,
+  proportional,
+  lining
+]{montserrat}
+\usepackage{inconsolata}
+
+\def\@@rubrichead#1{%
+  \makeatletter
+  \noindent\color{SwishLineColour}\rule{\@almosttextwidth}{0.8pt}%
+  \makeatother
+  \vspace\rubricspace%
+}
+\usepackage{fontawesome5}
+\usepackage{simpleicons}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks   = true,    % Colours links instead of ugly boxes
+  urlcolor     = blue,    % Colour for external hyperlinks
+  linkcolor    = blue,    % Colour of internal links
+  citecolor    = red      % Colour of citations
+}
+% Change the page margins if you want
+% \geometry{left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
+
+% Change the colours if you want
+% \definecolor{SwishLineColour}{HTML}{0000}
+% \definecolor{MarkerColour}{HTML}{000000}
+
+% Change the item prefix marker if you want
+\prefixmarker{$\bullet$}
+
+%% Photo is only shown if "fullonly" is included
+% \excludecomment{fullonly}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\leftheader{%
+  \begin{center}
+
+    % Centered name
+    \begin{tikzpicture}
+      \node[text=TextColor] at (0,0.1)
+        {\Huge\textbf{\sffamily Oleksiy Nedobiychuk}};
+    \end{tikzpicture}
+
+    \vspace{0.08cm}
+    {\large\bfseries\sffamily Software Engineer | AI/ML Background | Python Data Pipelines\par}
+
+    \vspace{0.12cm}
+
+    % Centered contact info
+    \begin{tabular}{c c c c} % <-- use c for centered columns
+      \makefield{\faEnvelope[regular]}{\href{mailto:oleksiy12345@live.it}{\texttt{oleksiy12345@live.it}}}
+      &
+      \makefield{{\scriptsize\simpleicon{github}}}{\!\href{https://github.com/lesi-nedo}{\texttt{@lesi-nedo}}}
+      &
+      \makefield{\faLinkedin}{\href{https://linkedin.com/in/lesi-nedo/}{\texttt{lesi-nedo}}}
+      &
+      \makefield{\faGlobe}{\url{http://nedo.im/blog/}}
+      \\
+      \multicolumn{4}{c}{
+        \makefield{\faMapMarked*}{\texttt{Pisa, Italy}}
+      }
+    \end{tabular}
+
+  \end{center}
+}
+
+\rightheader{~}
+
+
+\title{Curriculum Vitae}
+
+\begin{document}
+\makeheaders[c]
+\makerubric{education}%
+\vspace{4pt}
+\makerubric{employment-ai}%
+\vspace{4pt}
+\makerubric{projects}%
+\vspace{4pt}
+\makerubric{skills-ai}%
+
+% \makerubric{referee}
+% \input{referee-full}
+
+\end{document}
