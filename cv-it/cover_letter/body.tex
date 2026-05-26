@@ -1,0 +1,40 @@
+\letterbody{
+
+  Gentile responsabile della selezione,
+  \vspace{0.5cm}
+
+  % Cover letter body
+  Le scrivo per esprimere il mio interesse per la posizione di [POSIZIONE] presso [AZIENDA], pubblicata su [FONTE]. Grazie al mio percorso in [AMBITO] e alla mia esperienza in [COMPETENZE RILEVANTI], credo di poter contribuire concretamente al vostro team.
+
+  La mia esperienza professionale include [RISULTATO CHIAVE], dove ho [COSA HAI FATTO E RISULTATO OTTENUTO]. Inoltre, ho sviluppato competenze solide in [AREE DI COMPETENZA], coerenti con i requisiti descritti nell'annuncio.
+
+  Ci\`o che mi interessa di [AZIENDA] \`e [ASPETTO SPECIFICO DELL'AZIENDA]. Sono particolarmente motivato da [PROGETTO/VALORE/INNOVAZIONE DELL'AZIENDA] e sarei lieto di contribuire ai vostri obiettivi.
+
+  % Decorative element before closing
+  \begin{center}
+    \begin{tikzpicture}
+      \foreach \i in {1,...,5}{
+        \pgfmathsetmacro{\colorselect}{mod(\i,4)} % Cycle through 4 colors
+        \ifcase\colorselect
+          \definecolor{dotcolor}{named}{primaryAccent}
+        \or
+          \definecolor{dotcolor}{named}{secondaryAccent}
+        \or
+          \definecolor{dotcolor}{named}{tertiaryAccent}
+        \or
+          \definecolor{dotcolor}{named}{quaternaryAccent}
+        \fi
+        % Calculate y-position based on a sine wave for a subtle dynamic effect
+        \pgfmathsetmacro{\ypos}{sin(\i*72)*1.5} % Adjust multiplier for wave amplitude
+        % Vary size slightly based on position in wave or keep constant
+        \pgfmathsetmacro{\dotsize}{2.0 + abs(cos(\i*72))*1.0} % Size varies subtly (2.0pt to 3.0pt)
+        % Adjust opacity, maybe make it less linear or add slight randomness
+        \pgfmathsetmacro{\opacity}{0.4 + 0.3*rand} % Random opacity for texture
+        \filldraw[dotcolor!70!white, opacity=\opacity] (\i*0.45-1.35, \ypos pt) circle (\dotsize pt); % Slightly increased spacing
+      }
+    \end{tikzpicture}
+  \end{center}
+  % Closing paragraph
+  Sarei lieto di approfondire come le mie competenze e la mia esperienza possano essere utili alla vostra organizzazione. La ringrazio per l'attenzione e resto in attesa di un gentile riscontro.
+}
+\closing{Cordiali saluti,}
